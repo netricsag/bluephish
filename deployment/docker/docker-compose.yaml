@@ -3,12 +3,12 @@ version: '3'
 services:
   app:
     container_name: bluephish
-    image: dockerbluestone/bluephish:latest
+    image: bluephish:latest
     ports:
       - 3333:3333
       - 8080:80
     volumes:
-      - /data/bluephish/db/:/opt/gophish-v0.11.0/db/
+      - /data/bluephish/sqlite3/:/opt/gophish-v0.11.0/sqlite3/
     restart: unless-stopped
     networks:
       - bluephish
