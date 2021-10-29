@@ -16,23 +16,9 @@ spec:
         image: dockerbluestone/bluephish:latest
         ports:
         - name: webserver
-          containerPort: 8080
+          containerPort: 80
         - name: frontend
           containerPort: 3333
-        # livenessProbe:
-        #   httpGet:
-        #     path: /alive
-        #     port: http
-        #   periodSeconds: 60
-        #   timeoutSeconds: 30
-        #   initialDelaySeconds: 5
-        # readinessProbe:
-        #   httpGet:
-        #     path: /alive
-        #     port: http
-        #   periodSeconds: 30
-        #   timeoutSeconds: 30
-        #   initialDelaySeconds: 5
         volumeMounts:
         - name: data
           mountPath: /opt/gophish-v0.11.0/sqlite3/
