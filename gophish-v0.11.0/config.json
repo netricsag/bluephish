@@ -12,7 +12,7 @@
 		"key_path": "example.key"
 	},
 	"db_name": "sqlite3",
-	"db_path": "db/gophish.db",
+	"db_path": "sqlite/gophish.db",
 	"migrations_prefix": "db/db_",
 	"contact_address": "support@bluestone.ch",
 	"logging": {
