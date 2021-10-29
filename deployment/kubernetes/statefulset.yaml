@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: bluephish
+  labels:
+    team: zol
+spec:
+  serviceName: bluephish
+  replicas: 1
+  updateStrategy:
+    type: RollingUpdate
+  template:
+    spec:
+      containers:
+      - name: bluephish
+        image: dockerbluestone/bluephish:latest
+        ports:
+        - name: webserver
+          containerPort: 8080
+        - name: frontend
+          containerPort: 3333
+        # livenessProbe:
+        #   httpGet:
+        #     path: /alive
+        #     port: http
+        #   periodSeconds: 60
+        #   timeoutSeconds: 30
+        #   initialDelaySeconds: 5
+        # readinessProbe:
+        #   httpGet:
+        #     path: /alive
+        #     port: http
+        #   periodSeconds: 30
+        #   timeoutSeconds: 30
+        #   initialDelaySeconds: 5
+        volumeMounts:
+        - name: data
+          mountPath: /opt/gophish-v0.11.0/sqlite3/
+          subPath: db
+        resources:
+          limits:
+            cpu: 300m
+            memory: 1Gi
+          requests:
+            cpu: 50m
+            memory: 256Mi
+      terminationGracePeriodSeconds: 10
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes:
+        - "ReadWriteOnce"
+      resources:
+        requests:
+          storage: "1Gi"
+      storageClassName: "longhorn-backup"

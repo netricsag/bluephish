@@ -1,0 +1,41 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bluephish-frontend
+  labels:
+    name: bluephish-frontend
+spec:
+  rules:
+  - host: <bluephish.example.com>
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: bluephish-frontend
+            port:
+              name: frontend
+# implement tls if you want
+---
+# for every campagne you have to create an ingress ressource
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bluephish-webserver-campagne
+  labels:
+    name: bluephish-webserver-campagne
+spec:
+  rules:
+  - host: <campagnsite.example.com>
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: bluephish-webserver
+            port:
+              name: webserver
+# implement tls if you want
