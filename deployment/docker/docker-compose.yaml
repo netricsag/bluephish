@@ -8,7 +8,7 @@ services:
       - 3333:3333
       - 8080:80
     volumes:
-      - /data/bluephish/gophish.db:/opt/gophish-v0.11.0/gophish.db
+      - /data/bluephish/db/:/opt/gophish-v0.11.0/db/
     restart: unless-stopped
     networks:
       - bluephish
