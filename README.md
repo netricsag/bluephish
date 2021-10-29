@@ -1,4 +1,4 @@
-# bluephish
+# BluePhish
 This repository contains a direct fork of [GoPhish](https://github.com/gophish/gophish).
 
 ## deployment
