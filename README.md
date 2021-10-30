@@ -1,3 +1,4 @@
+![BlueStone Logo](docs/images/BlueStone_logo.png)
 # BluePhish
 This repository contains a direct fork of [GoPhish](https://github.com/gophish/gophish).
 
