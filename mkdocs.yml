@@ -1,3 +1,18 @@
 site_name: BluePhish
 theme:
+  logo: images/bluephish_logo_text.png
   name: material
+  language: en
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: images/favicon.ico
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate 
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
