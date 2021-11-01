@@ -1,12 +1,16 @@
 site_name: BluePhish
+repo_url: https://github.com/bluestoneag/bluephish
+repo_name: bluestoneag/bluephish
 theme:
-  logo: images/bluephish_logo_text.png
+  logo: images/bluephish_logo_small_white.png
   name: material
   language: en
   font:
     text: Roboto
     code: Roboto Mono
   favicon: images/favicon.ico
+  icon:
+    repo: fontawesome/brands/github
   palette:
     - scheme: default
       toggle:
