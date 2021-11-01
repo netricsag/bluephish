@@ -1,4 +1,4 @@
-![gophish logo](docs/images/BlueStone_logo.png)
+![BluePhish Logo Wallpaper](docs/images/bluephish_logo_wallpaper.png)
 
 BluePhish
 =======
