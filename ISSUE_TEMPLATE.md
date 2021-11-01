@@ -18,7 +18,7 @@ If this question is related to email templates or landing pages not working as e
 Insert code here
 ```
 
-Please provide any terminal output that may be relevant below:
+Please provide any **terminal output** that may be relevant below:
 
 ```
 Insert output here
@@ -27,5 +27,3 @@ Insert output here
 Please provide as many steps as you can to reproduce the problem:
  * Step 1 - 
  * Step 2 - 
- 
- 

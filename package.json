@@ -1,16 +1,16 @@
 {
-  "name": "gophish",
+  "name": "bluephish",
   "version": "0.4.0-dev",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gophish/gophish.git"
+    "url": "git+https://github.com/bluestoneag/bluephish.git"
   },
-  "author": "Jordan Wright",
-  "license": "MIT",
+  "author": "BlueStone AG",
+  "license": "Apache 2.0",
   "bugs": {
     "url": "https://github.com/bluestoneag/bluephish/issues"
   },
-  "homepage": "https://getgophish.com",
+  "homepage": "https://bluephish.com",
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
