@@ -3,6 +3,7 @@ repo_url: https://github.com/bluestoneag/bluephish
 repo_name: bluestoneag/bluephish
 theme:
   logo: images/bluephish_logo_small_white.png
+  name: material
   language: en
   font:
     text: Roboto
@@ -12,10 +13,12 @@ theme:
     repo: fontawesome/brands/github
   palette:
     - scheme: default
+      primary: blue
       toggle:
         icon: material/lightbulb-outline
         name: Switch to dark mode
     - scheme: slate 
+      primary: blue
       toggle:
         icon: material/lightbulb
         name: Switch to light mode
