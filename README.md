@@ -17,7 +17,7 @@ The BluePhish version of GoPhish supports currently **only** `sqlite3`.
 
 #### Docker
 ```bash
-docker pull dockerbluestone/bluephish:latest
+docker pull ghcr.io/bluestoneag/bluephish:latest
 ```
 
 *sample docker-compose file*: [docker-compose.yaml](docs/deployment/docker/docker-compose.yaml)
