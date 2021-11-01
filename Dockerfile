@@ -36,7 +36,6 @@ RUN chown app. config.json
 
 RUN setcap 'cap_net_bind_service=+ep' /opt/bluephish/bluephish
 
-USER app
 RUN touch config.json.tmp
 
 EXPOSE 3333 8080 8443 80
