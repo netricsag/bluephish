@@ -1,6 +1,18 @@
-site_name: BluePhish
+# Project information
+site_name: BluePhish Docs
+site_author: Bluestone AG
+site_description: >-
+  Open-Source Phishing Toolkit directly forked of the GoPhish Version 0.11.0
+
+# Repository
 repo_url: https://github.com/bluestoneag/bluephish
 repo_name: bluestoneag/bluephish
+edit_uri: ""
+
+# Copyright
+copyright: Copyright &copy; 2021 Bluestone AG
+
+# Configuration
 theme:
   logo: images/bluephish_logo_small_white.png
   name: material
@@ -11,14 +23,45 @@ theme:
   favicon: images/favicon.ico
   icon:
     repo: fontawesome/brands/github
+  features:
+    - content.code.annotate
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
   palette:
     - scheme: default
-      primary: blue
+      primary: grey
+      accent: blue
       toggle:
         icon: material/lightbulb-outline
         name: Switch to dark mode
     - scheme: slate 
-      primary: blue
+      primary: black
+      accent: blue
       toggle:
         icon: material/lightbulb
         name: Switch to light mode
+
+# Plugins
+plugins:
+  - search
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/bluestoneag
+    - icon: fontawesome/brands/instagram
+      link: https://instagram.com/bscgag
+
+# Page tree
+nav:
+  - Home: index.md
+  - Deployment:
+    - Docker: docker.md
+    - Kubernetes: kubernetes.md
