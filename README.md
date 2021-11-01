@@ -9,6 +9,10 @@ BluePhish: Open-Source Phishing Toolkit (Direct Fork of [GoPhish](https://github
 
 [Gophish](https://getgophish.com) is an open-source phishing toolkit designed for businesses and penetration testers. It provides the ability to quickly and easily setup and execute phishing engagements and security awareness training.
 
+### Database
+
+The BluePhish version of GoPhish supports currently **only** `sqlite3`.
+
 ### Deployment
 
 #### Docker

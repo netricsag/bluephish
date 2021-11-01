@@ -27,14 +27,14 @@ RUN apt-get update && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-WORKDIR /opt/bluestoneag
+WORKDIR /opt/bluephish
 COPY --from=build-golang /go/src/github.com/bluestoneag/bluephish/ ./
 COPY --from=build-js /build/static/js/dist/ ./static/js/dist/
 COPY --from=build-js /build/static/css/dist/ ./static/css/dist/
 COPY --from=build-golang /go/src/github.com/bluestoneag/bluephish/config.json ./
 RUN chown app. config.json
 
-RUN setcap 'cap_net_bind_service=+ep' /opt/bluestoneag/bluephish
+RUN setcap 'cap_net_bind_service=+ep' /opt/bluephish/bluephish
 
 USER app
 RUN sed -i 's/127.0.0.1/0.0.0.0/g' config.json

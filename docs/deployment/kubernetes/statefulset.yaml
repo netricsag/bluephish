@@ -21,7 +21,7 @@ spec:
           containerPort: 3333
         volumeMounts:
         - name: data
-          mountPath: /opt/gophish-v0.11.0/sqlite3/
+          mountPath: /opt/bluephish/sqlite3/
           subPath: db
         resources:
           limits:
