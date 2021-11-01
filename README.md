@@ -16,10 +16,10 @@ BluePhish: Open-Source Phishing Toolkit (Direct Fork of [GoPhish](https://github
 docker pull dockerbluestone/bluephish:latest
 ```
 
-*sample docker-compose file*: [docker-compose.yaml](deployment/docker/docker-compose.yaml)
+*sample docker-compose file*: [docker-compose.yaml](docs/deployment/docker/docker-compose.yaml)
 
 #### Kubernetes
-Edit and apply the kustomization files in the [kubernetes](deployment/kubernetes) directory.  
+Edit and apply the kustomization files in the [kubernetes](docs/deployment/kubernetes) directory.  
 For every campagne you have to create a specific ingress ressource in the `ingress.yaml`.  
 The ingress ressource should refer to the `bluephish-webserver` service on port `80` defined in the `services.yaml`.
 
