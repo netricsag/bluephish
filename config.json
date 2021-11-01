@@ -14,7 +14,7 @@
 	"db_name": "sqlite3",
 	"db_path": "sqlite3/gophish.db",
 	"migrations_prefix": "db/db_",
-	"contact_address": "",
+	"contact_address": "support@bluestone.ch",
 	"logging": {
 		"filename": "",
 		"level": ""

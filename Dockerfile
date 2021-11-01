@@ -37,6 +37,8 @@ RUN chown app. config.json
 RUN setcap 'cap_net_bind_service=+ep' /opt/bluephish/bluephish
 
 RUN touch config.json.tmp
+RUN mkdir sqlite3
+RUN touch sqlite3/sqlite3.db
 
 EXPOSE 3333 8080 8443 80
 
