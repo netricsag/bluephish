@@ -63,5 +63,5 @@ extra:
 nav:
   - Home: index.md
   - Deployment:
-    - Docker: docker.md
-    - Kubernetes: kubernetes.md
+    - Docker: deployment/docker.md
+    - Kubernetes: deployment/kubernetes.md
