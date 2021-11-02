@@ -10,7 +10,7 @@
   "bugs": {
     "url": "https://github.com/bluestoneag/bluephish/issues"
   },
-  "homepage": "https://bluephish.com",
+  "homepage": "https://bluestoneag.github.io/bluephish",
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
