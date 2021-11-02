@@ -3,7 +3,15 @@
 BluePhish
 =======
 
-![Build Status](https://github.com/bluestoneag/bluephish/workflows/CI/badge.svg) [![GoDoc](https://godoc.org/github.com/gophish/gophish?status.svg)](https://godoc.org/github.com/gophish/gophish) [![Go Report Card](https://goreportcard.com/badge/github.com/bluestoneag/bluephish)](https://goreportcard.com/report/github.com/bluestoneag/bluephish)
+![Build Status](https://github.com/bluestoneag/bluephish/workflows/CI/badge.svg) 
+[![GoDoc](https://godoc.org/github.com/gophish/gophish?status.svg)](https://godoc.org/github.com/gophish/gophish) 
+[![Go Report Card](https://goreportcard.com/badge/github.com/bluestoneag/bluephish)](https://goreportcard.com/report/github.com/bluestoneag/bluephish) 
+![GitHub top language](https://img.shields.io/github/languages/top/bluestoneag/bluephish) 
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/bluestoneag/bluephish) 
+![GitHub package.json version](https://img.shields.io/github/package-json/v/bluestoneag/bluephish) 
+![open issues](https://img.shields.io/github/issues-raw/bluestoneag/bluephish) 
+![license](https://img.shields.io/github/license/bluestoneag/bluephish) 
+
 
 BluePhish: Open-Source Phishing Toolkit (Direct Fork of [GoPhish](https://github.com/gophish/gophish))
 
