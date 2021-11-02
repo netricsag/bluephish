@@ -65,3 +65,5 @@ nav:
   - Deployment:
     - Docker: deployment/docker.md
     - Kubernetes: deployment/kubernetes.md
+  - API Documentation
+    - Introduction: api/introduction.md
