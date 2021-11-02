@@ -14,7 +14,7 @@ copyright: Copyright &copy; 2021 Bluestone AG
 
 # Configuration
 theme:
-  logo: images/bluephish_logo_small_white.png
+  logo: images/bluephish_logo_small.png
   name: material
   language: en
   font:
@@ -41,7 +41,7 @@ theme:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
     - scheme: slate 
-      primary: white
+      primary: black
       accent: light blue
       toggle:
         icon: material/toggle-switch
