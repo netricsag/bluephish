@@ -9,29 +9,37 @@ BluePhish: Open-Source Phishing Toolkit (Direct Fork of [GoPhish](https://github
 
 [Gophish](https://getgophish.com) is an open-source phishing toolkit designed for businesses and penetration testers. It provides the ability to quickly and easily setup and execute phishing engagements and security awareness training.
 
-### Database
+## Database
 
 The BluePhish version of GoPhish supports currently **only** `sqlite3`.
 
-### Deployment
+## Deployment
 
-#### Docker
+### Environment Variables
+
+You can define the following env variables for configuring the BluePhish instance:
+| Variable | Purpose | Default Value |
+| :--- | :--- | :--- |
+| `BLUEPHISH_INITIAL_ADMIN_PASSWORD` | set an initial admin password | `bluephish` |
+| `BLUEPHISH_INITIAL_ADMIN_API_TOKEN` | set an initial admin api token | *randomly generated* | 
+
+### Docker
 ```bash
 docker pull ghcr.io/bluestoneag/bluephish:latest
 ```
 
 *sample docker-compose file*: [docker-compose.yaml](docs/deployment/docker/docker-compose.yaml)
 
-#### Kubernetes
+### Kubernetes
 Edit and apply the kustomization files in the [kubernetes](docs/deployment/kubernetes) directory.  
 For every campagne you have to create a specific ingress ressource in the `ingress.yaml`.  
 The ingress ressource should refer to the `bluephish-webserver` service on port `80` defined in the `services.yaml`.
 
-### Documentation
+## Documentation
 
-Documentation can be found on our [site](http://getgophish.com/documentation). Find something missing? Let us know by filing an issue!
+Documentation can be found on our [site](https://bluestoneag.github.io/bluephish). Find something missing? Let us know by filing an issue!
 
-### Issues
+## Issues
 
 - Found a bug? 
 - Want more features?  

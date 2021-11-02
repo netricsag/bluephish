@@ -32,12 +32,13 @@ const DefaultAdminUsername = "admin"
 // InitialAdminPassword is the environment variable that specifies which
 // password to use for the initial root login instead of generating one
 // randomly
-const InitialAdminPassword = "GOPHISH_INITIAL_ADMIN_PASSWORD"
+const InitialAdminPassword = "BLUEPHISH_INITIAL_ADMIN_PASSWORD"
+const InitialAdminPasswortValue = "bluephish"
 
 // InitialAdminApiToken is the environment variable that specifies the
 // API token to seed the initial root login instead of generating one
 // randomly
-const InitialAdminApiToken = "GOPHISH_INITIAL_ADMIN_API_TOKEN"
+const InitialAdminApiToken = "BLUEPHISH_INITIAL_ADMIN_API_TOKEN"
 
 const (
 	CampaignInProgress string = "In progress"
@@ -105,7 +106,7 @@ func createTemporaryPassword(u *User) error {
 	} else {
 		// This will result in a 16 character password which could be viewed as an
 		// inconvenience, but it should be ok for now.
-		temporaryPassword = auth.GenerateSecureKey(auth.MinPasswordLength)
+		temporaryPassword = InitialAdminPasswortValue // auth.GenerateSecureKey(auth.MinPasswordLength)
 	}
 	hash, err := auth.GeneratePasswordHash(temporaryPassword)
 	if err != nil {
