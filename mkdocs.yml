@@ -35,16 +35,16 @@ theme:
     - search.suggest
   palette:
     - scheme: default
-      primary: grey
-      accent: blue
+      primary: white
+      accent: light blue
       toggle:
-        icon: material/lightbulb-outline
+        icon: material/toggle-switch-off-outline
         name: Switch to dark mode
     - scheme: slate 
-      primary: black
-      accent: blue
+      primary: white
+      accent: light blue
       toggle:
-        icon: material/lightbulb
+        icon: material/toggle-switch
         name: Switch to light mode
 
 # Plugins
@@ -65,5 +65,6 @@ nav:
   - Deployment:
     - Docker: deployment/docker.md
     - Kubernetes: deployment/kubernetes.md
-  - API Documentation
+  - API Documentation:
     - Introduction: api/introduction.md
+    - Settings: api/settings.md
