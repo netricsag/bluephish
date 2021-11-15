@@ -54,3 +54,7 @@ Documentation can be found on our [site](https://bluestoneag.github.io/bluephish
 - Find something missing in the documentation?  
 
 Let us know! Please don't hesitate to [file an issue](https://github.com/bluestoneag/bluephish/issues/new) and we'll get right on it.
+
+## GoPhish License
+As mentioned before BluePhish is a direct fork of the GoPhish Version 0.11.0 (https://github.com/gophish/gophish).  
+This means that a the most code is provided by GoPhish and the license of the GoPhish is the same as the license of the BluePhish.
