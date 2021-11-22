@@ -34,6 +34,8 @@ function launch() {
                 })
                 // Validate our fields
                 var send_by_date = $("#send_by_date").val()
+                var daily_time_slot_start = $("#daily_time_slot_start").val()
+                var daily_time_slot_end = $("#daily_time_slot_end").val()
                 if (send_by_date != "") {
                     send_by_date = moment(send_by_date, "MMMM Do YYYY, h:mm a").utc().format()
                 }
@@ -51,6 +53,8 @@ function launch() {
                     },
                     launch_date: moment($("#launch_date").val(), "MMMM Do YYYY, h:mm a").utc().format(),
                     send_by_date: send_by_date || null,
+                    daily_time_slot_start: daily_time_slot_start || null,
+                    daily_time_slot_end: daily_time_slot_end || null,
                     groups: groups,
                 }
                 // Submit the campaign
@@ -305,6 +309,22 @@ $(document).ready(function () {
         "useCurrent": false,
         "format": "MMMM Do YYYY, h:mm a"
     })
+    $("#daily_time_slot_start").datetimepicker({
+        "widgetPositioning": {
+            "vertical": "bottom"
+        },
+        "showTodayButton": true,
+        "useCurrent": false,
+        "format": "h:mm a"
+    })
+    $("#daily_time_slot_end").datetimepicker({
+        "widgetPositioning": {
+            "vertical": "bottom"
+        },
+        "showTodayButton": true,
+        "useCurrent": false,
+        "format": "h:mm a"
+    })
     // Setup multiple modals
     // Code based on http://miles-by-motorcycle.com/static/bootstrap-modal/index.html
     $('.modal').on('hidden.bs.modal', function (event) {
@@ -371,8 +391,16 @@ $(document).ready(function () {
                     //section for tooltips on the status of a campaign to show some quick stats
                     var launchDate;
                     if (moment(campaign.launch_date).isAfter(moment())) {
+                        var timeSpan = null
                         launchDate = "Scheduled to start: " + moment(campaign.launch_date).format('MMMM Do YYYY, h:mm:ss a')
-                        var quickStats = launchDate + "<br><br>" + "Number of recipients: " + campaign.stats.total
+                        if (campaign.daily_time_slot_start != null && campaign.daily_time_slot_end != null) {
+                            timeSpan = "The emails will be sent daily between: " + moment(campaign.daily_time_slot_start).format('h:mm a') + " and " + moment(campaign.daily_time_slot_end).format('h:mm a')
+                        }
+                        if (timeSpan != null) {
+                            var quickStats = launchDate + "<br><br>" + "Number of recipients: " + campaign.stats.total
+                        } else {
+                            var quickStats = launchDate + "<br><br>" + timeSpan + "<br><br>" + "Number of recipients: " + campaign.stats.total
+                        }
                     } else {
                         launchDate = "Launch Date: " + moment(campaign.launch_date).format('MMMM Do YYYY, h:mm:ss a')
                         var quickStats = launchDate + "<br><br>" + "Number of recipients: " + campaign.stats.total + "<br><br>" + "Emails opened: " + campaign.stats.opened + "<br><br>" + "Emails clicked: " + campaign.stats.clicked + "<br><br>" + "Submitted Credentials: " + campaign.stats.submitted_data + "<br><br>" + "Errors : " + campaign.stats.error + "<br><br>" + "Reported : " + campaign.stats.email_reported

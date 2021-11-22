@@ -19,6 +19,8 @@ type Campaign struct {
 	CreatedDate   time.Time `json:"created_date"`
 	LaunchDate    time.Time `json:"launch_date"`
 	SendByDate    time.Time `json:"send_by_date"`
+	TimeSpanStart time.Time `json:"time_span_start_date"`
+	TimeSpanEnd   time.Time `json:"time_span_end_date"`
 	CompletedDate time.Time `json:"completed_date"`
 	TemplateId    int64     `json:"-"`
 	Template      Template  `json:"template"`
@@ -54,6 +56,8 @@ type CampaignSummary struct {
 	CreatedDate   time.Time     `json:"created_date"`
 	LaunchDate    time.Time     `json:"launch_date"`
 	SendByDate    time.Time     `json:"send_by_date"`
+	TimeSpanStart time.Time     `json:"time_span_start_date"`
+	TimeSpanEnd   time.Time     `json:"time_span_end_date"`
 	CompletedDate time.Time     `json:"completed_date"`
 	Status        string        `json:"status"`
 	Name          string        `json:"name"`
@@ -126,6 +130,8 @@ var ErrSMTPNotFound = errors.New("Sending profile not found")
 // launch date
 var ErrInvalidSendByDate = errors.New("The launch date must be before the \"send emails by\" date")
 
+var ErrInvalidTimeSpan = errors.New("The \"send emails by\" date must be after the \"send emails from\" date")
+
 // RecipientParameter is the URL parameter that points to the result ID for a recipient.
 const RecipientParameter = "rid"
 
@@ -144,6 +150,8 @@ func (c *Campaign) Validate() error {
 		return ErrSMTPNotSpecified
 	case !c.SendByDate.IsZero() && !c.LaunchDate.IsZero() && c.SendByDate.Before(c.LaunchDate):
 		return ErrInvalidSendByDate
+	case !c.SendByDate.IsZero() && !c.TimeSpanStart.IsZero() && c.SendByDate.Before(c.TimeSpanStart) && !c.TimeSpanEnd.IsZero() && c.TimeSpanEnd.After(c.TimeSpanStart):
+		return ErrInvalidTimeSpan
 	}
 	return nil
 }
@@ -260,6 +268,21 @@ func (c *Campaign) generateSendDate(idx int, totalRecipients int) time.Time {
 	// Finally, we can just add this offset to the launch date to determine
 	// when the email should be sent
 	return c.LaunchDate.Add(time.Duration(offset) * time.Minute)
+}
+
+func (c *Campaign) calculateMailsPerSlot(idx int, totalRecipients int) (float64, error) {
+	// If no send date is specified, just return the launch date
+	if c.TimeSpanStart.IsZero() || c.TimeSpanEnd.Equal(c.TimeSpanStart) {
+		return -1, ErrInvalidTimeSpan
+	}
+
+	// Calculate the minutes between time span start and end
+	totalMinutes := c.TimeSpanEnd.Sub(c.TimeSpanStart).Minutes()
+
+	// Calculate the days between launch date and send by date
+	daysBetween := c.SendByDate.Sub(c.LaunchDate).Hours() / 24
+
+	return (totalMinutes * daysBetween / float64(totalRecipients)), nil
 }
 
 // getCampaignStats returns a CampaignStats object for the campaign with the given campaign ID.
